@@ -4,7 +4,7 @@ import Country from "../Country/Country";
 
 
 const Countries = () => {
-    const [countries, setCountries] = useState(0);
+    const [countries, setCountries] = useState([]);
 
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
@@ -17,7 +17,7 @@ const Countries = () => {
             <h3>Countries: {countries.length}</h3>
             {
                 countries.map(country =>
-                     <Country></Country>)
+                     <Country key={country.cca3} country={country}></Country>)
             }
         </div>
     );
